@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Customer;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,8 +19,10 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('create');
+    return view('welcome');
 });
+
+Route::get('customers/create', [CustomerController::class,'create']);
 
 
 Route::middleware('auth')->group(function () {
