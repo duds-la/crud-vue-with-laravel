@@ -26,6 +26,8 @@ Route::get('customers', [CustomerController::class,'index'])->name('customers.in
 
 Route::get('customers/create', [CustomerController::class,'create']);
 Route::post('customers', [CustomerController::class,'store']);
+Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])->name('profile.destroy');
+
 
 
 Route::middleware('auth')->group(function () {

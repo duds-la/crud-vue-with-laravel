@@ -9,6 +9,17 @@ use Inertia\Inertia;
 
 class CustomerController extends Controller
 {
+    public function index() {
+        return Inertia::render('index',[
+            'customers' => Customer::all()->map(function($customer){
+                return [
+                    'id' => $customer->id,
+                    'name' => $customer->name
+                ];
+            }), 
+        ]);
+    }
+
     public function create() {
         return Inertia::render('create');
     }
@@ -22,6 +33,11 @@ class CustomerController extends Controller
 
         Customer::create($validated);
 
+        return Redirect::route('customers.index');
+    }
+
+    public function destroy(Customer $customer) {
+        $customer->delete();
         return Redirect::route('customers.index');
     }
 }

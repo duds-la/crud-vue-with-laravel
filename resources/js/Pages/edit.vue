@@ -1,19 +1,5 @@
 <script setup>
-    import { useForm } from '@inertiajs/vue3';
-    import { router } from '@inertiajs/vue3';
 
-    defineProps({
-        errors: Object
-    })
-    const form = useForm({
-        name:null,
-        email:null,
-        phone:null,
-    });
-
-    function submit(){
-        router.post('/customers', form)
-    }
 </script>
 <template>
     <div class="card col-6 offset-3">
@@ -49,7 +35,3 @@
         </div>
     </div>
 </template>
-
-<style lang="">
-    
-</style>
