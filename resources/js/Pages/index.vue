@@ -9,6 +9,11 @@
     {
         router.delete('/customers/'+id);
     }
+
+    function edit(id)
+    {
+        router.get('/customers/'+id+'/edit');
+    }
 </script>
 <template >
     <div class="card col-5 offset-3">
@@ -24,7 +29,7 @@
                     <td>{{ customer.name }}</td>
                     <td>
                         <button class="btn btn-outline-warning">View</button>
-                        <button class="btn btn-outline-primary">Edit</button>
+                        <button @click.prevent="edit(customer.id)" class="btn btn-outline-primary">Edit</button>
                         <button @click.prevent="destroy(customer.id)" class="btn btn-outline-danger">Delete</button>
                     </td>
                 </tr>
