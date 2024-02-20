@@ -17,10 +17,8 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Route::get('/', [CustomerController::class,'index'])->name('customers.index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('customers', [CustomerController::class,'index'])->name('customers.index');
 
